@@ -7,6 +7,7 @@ Quick script that scans the publix weekly ads page to scan for discounts of a us
 Download the script:
 
 Download publix_deal_scraper.py
+
 Download requirements.txt
 
 
