@@ -6,7 +6,7 @@ Quick script that scans the publix weekly ads page to scan for discounts of a us
 
 Download the script:
 
-Download publix_scraper_interactive.py
+Download publix_deal_scraper.py
 Download requirements.txt
 
 
@@ -40,4 +40,4 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 Run the scraper:
 
-python publix_scraper_interactive.py
+python publix_deal_scraper.py
