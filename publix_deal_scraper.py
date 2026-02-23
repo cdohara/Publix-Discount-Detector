@@ -11,8 +11,8 @@ from datetime import datetime
 from pathlib import Path
 
 from bs4 import BeautifulSoup
-from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.webdriver import WebDriver as webdriver
 
 try:
     import tomllib
@@ -41,7 +41,7 @@ def setup_driver(headless=True):
     )
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
 
-    return webdriver.Chrome(options=options)
+    return webdriver(options=options)
 
 
 def scroll_page(driver, passes=DEFAULT_SCROLL_PASSES, pause_seconds=2):
