@@ -94,7 +94,7 @@ def extract_deal_info(container):
         if not full_text or len(full_text) < 5:
             return None
 
-        lines = [l.strip() for l in full_text.split("\n") if l.strip()]
+        lines = [ln.strip() for ln in full_text.split("\n") if ln.strip()]
         product_name = lines[0] if lines else "Unknown Product"
 
         # Extract prices
@@ -197,7 +197,7 @@ def print_deal(deal, index):
     print(f"{emoji} Deal Type: {deal['deal_type']}")
 
     if deal.get("is_bogo"):
-        print(f"🎁 BUY 1 GET 1 FREE!")
+        print("🎁 BUY 1 GET 1 FREE!")
 
     if deal.get("current_price"):
         print(f"💰 Price: {deal['current_price']}")
@@ -450,7 +450,7 @@ def run_scraper(settings: dict):
     if store_number:
         print(f"📍 Store: #{store_number}")
     else:
-        print(f"📍 Store: All stores (generic weekly ad)")
+        print("📍 Store: All stores (generic weekly ad)")
     print()
 
     if cache_enabled:
