@@ -1,0 +1,12 @@
+[project]
+name = "publix-discount-detector"
+version = "0.1.0"
+description = "Quick script that scans the publix weekly ads page to scan for discounts of a user inputted item in a user inputted store. Integrated with Selenium."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "selenium>=4.0.0",
+    "beautifulsoup4>=4.9.0",
+    "lxml>=4.6.0",
+    "tomli>=2.0.1 ; python_version < '3.11'",
+]

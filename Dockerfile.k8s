@@ -20,15 +20,23 @@ RUN CHROMEDRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_R
     rm /tmp/chromedriver.zip && \
     chmod +x /usr/local/bin/chromedriver
 
+# Install uv
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh -s -- --yes && \
+    mv /root/.cargo/bin/uv /usr/local/bin/uv && \
+    rm -rf /root/.cargo
+
 # Create app directory
 WORKDIR /app
 
-# Copy requirements and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy dependency metadata and sync the virtual environment
+COPY pyproject.toml uv.lock ./
+RUN uv sync
 
 # Copy the automated script
 COPY publix_deal_scraper.py .
+
+# Make sure the virtual environment is preferred on PATH
+ENV PATH="/app/.venv/bin:${PATH}"
 
 # Create non-root user for security
 RUN useradd -m -u 1000 scraper && \

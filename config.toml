@@ -1,0 +1,14 @@
+# Configuration for Publix Discount Detector
+
+search_item = ["doctor d", "ginger"]
+store_number = "1822"
+
+# Optional overrides
+headless = true
+wait_seconds = 5
+scroll_passes = 5
+
+# Cache behavior (defaults shown)
+cache_enabled = true
+cache_file = ".cache/publix_deals.json"
+cache_ttl_minutes = 60
